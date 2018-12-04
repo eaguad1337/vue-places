@@ -1,5 +1,5 @@
 <template>
-  <input type="search" v-bind:value="value" @input="updateValue($event.target.value)" />
+  <input type="search" @change="onChange" v-bind:value="value" @input="updateValue($event.target.value)" />
 </template>
 <script>
 import places from 'places.js';
@@ -14,6 +14,10 @@ export default {
       type: Object,
       default: () => ({}),
     },
+    onChange: {
+      type: Function,
+      default: () => {},
+    }
   },
 
   data() {
